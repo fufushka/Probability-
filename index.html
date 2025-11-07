@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ймовірність</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="container">
     <h1>Поточна ймовірність</h1>
-    <div id="probability-1" class="probability">Даня </div>
-    <div id="probability-2" class="probability">Тимко </div>
+
+    <div class="probability-blocks">
+      <div class="block ">
+        <h2 class="spin-text">Даня</h2>
+        <div id="probability-1" class="probability spin-text">—</div>
+      </div>
+
+      <div class="block">
+        <h2 class="spin-text">Тимко</h2>
+        <div id="probability-2" class="probability spin-text" >—</div>
+      </div>
+    </div>
 
     <p class="note">Дані оновлюються автоматично кожні 5 секунд</p>
-
-
   </div>
 
   <script>
     async function loadProbability() {
       try {
-        const response = await fetch("https://raw.githubusercontent.com/fufushka/Probability-/main/probability.json?nocache=" + Date.now());
+        const response = await fetch("https://cdn.jsdelivr.net/gh/fufushka/Probability-@main/probability.json?nocache=" + Date.now());
         if (!response.ok) throw new Error("Не вдалося отримати дані");
+
         const data = await response.json();
+
         document.getElementById("probability-1").textContent = data["value-d"] + " %";
         document.getElementById("probability-2").textContent = data["value-t"] + " %";
-
       } catch (error) {
         document.getElementById("probability-1").textContent = "Помилка завантаження";
         document.getElementById("probability-2").textContent = "Помилка завантаження";
-
+        console.error(error);
       }
     }
 
     loadProbability();
-    setInterval(loadProbability, 5000); // оновлення кожні 5 секунд
+    setInterval(loadProbability, 5000);
   </script>
 </body>
+
 </html>

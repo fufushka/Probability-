@@ -1,6 +1,6 @@
 body {
     font-family: "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(135deg, #232526, #414345);
+    background: radial-gradient(circle at top left, #1f1f1f, #111);
     color: #f2f2f2;
     height: 100vh;
     margin: 0;
@@ -19,20 +19,60 @@ body {
 }
 
 h1 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-weight: 400;
     letter-spacing: 1px;
 }
 
-.probability {
-    font-size: 5rem;
-    font-weight: bold;
-    margin: 20px 0;
-    color: #00ffb3;
-    transition: all 0.3s ease;
+.probability-blocks {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 30px;
 }
 
-.note {
-    font-size: 0.9rem;
-    color: #aaa;
+.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.block h2 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #00ffb3;
+}
+
+.probability {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #00ffd0;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+/* Анімація при оновленні */
+.spin-text {
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    text-shadow:
+        1px 1px 0px #e63946,
+        2px 2px 0px #f77f00,
+        3px 3px 0px #fcbf49,
+        4px 4px 0px #a8dadc,
+        5px 5px 0px #457b9d;
+    transform: rotateY(0deg);
+    transform-style: preserve-3d;
+    animation: spin-3d 4s infinite linear;
+}
+
+@keyframes spin-3d {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
 }
