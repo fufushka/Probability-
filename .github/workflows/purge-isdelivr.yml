@@ -1,0 +1,14 @@
+name: Purge jsDelivr Cache
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  purge-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Purge jsDelivr cache for probability.json
+        run: |
+          curl -X POST "https://purge.jsdelivr.net/gh/fufushka/Probability-/probability.json"
