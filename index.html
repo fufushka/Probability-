@@ -9,8 +9,8 @@
 <body>
   <div class="container">
     <h1>Поточна ймовірність</h1>
-    <div id="probability" class="probability-1">—</div>
-    <div id="probability" class="probability-2">—</div>
+    <div id="probability-1" class="probability">Даня </div>
+    <div id="probability-2" class="probability">Тимко </div>
 
     <p class="note">Дані оновлюються автоматично кожні 5 секунд</p>
 
@@ -27,7 +27,9 @@
         document.getElementById("probability-2").textContent = data.value-t + " %";
 
       } catch (error) {
-        document.getElementById("probability").textContent = "Помилка завантаження";
+        document.getElementById("probability-1").textContent = "Помилка завантаження";
+        document.getElementById("probability-2").textContent = "Помилка завантаження";
+
       }
     }
 
