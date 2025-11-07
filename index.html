@@ -23,8 +23,8 @@
         const response = await fetch("https://raw.githubusercontent.com/fufushka/Probability-/main/probability.json?nocache=" + Date.now());
         if (!response.ok) throw new Error("Не вдалося отримати дані");
         const data = await response.json();
-        document.getElementById("probability-1").textContent = data.value-d + " %";
-        document.getElementById("probability-2").textContent = data.value-t + " %";
+        document.getElementById("probability-1").textContent = data["value-d"] + " %";
+        document.getElementById("probability-2").textContent = data["value-t"] + " %";
 
       } catch (error) {
         document.getElementById("probability-1").textContent = "Помилка завантаження";
