@@ -26,8 +26,7 @@ h1 {
 }
 
 .probability-blocks {
-    display: flex;
-    justify-content: center;
+   
     gap: 60px;
     margin-bottom: 20px;
 }
